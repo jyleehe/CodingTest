@@ -24,19 +24,14 @@ for i in range(num_pairs):
     a, b = map(int, input().split())
     rels[a].add(b)
     rels[b].add(a)
-    # if a in rels.keys():
-    #     rels[a].append(b)
-    # else:
-    #     rels[a] = [b]
-print(rels)
 
 
 def dfs(graph, num):
     global answer
     visited[num] = 1
     answer += 1
-    print("visit:{}".format(num))
-    print(visited[:10])
+    # print("visit:{}".format(num))
+    # print(visited[:10])
 
     for chi in graph[num]:
         if visited[chi] != 1: # not visited
@@ -45,6 +40,5 @@ def dfs(graph, num):
 
 
 answer = -1
-# visited[1] = 1
 dfs(rels, 1)
 print(answer)
