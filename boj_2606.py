@@ -17,27 +17,34 @@ sys.stdin = open("boj_2606_input.txt", 'r')
 
 N = int(input())
 num_pairs = int(input())
-rels = {}
-visited = [0] * 100
+rels = [set() for _ in range(N+1)]
+visited = [0] * 101
 
 for i in range(num_pairs):
     a, b = map(int, input().split())
-    if a in rels.keys():
-        rels[a].append(b)
-    else:
-        rels[a] = [b]
+    rels[a].add(b)
+    rels[b].add(a)
+    # if a in rels.keys():
+    #     rels[a].append(b)
+    # else:
+    #     rels[a] = [b]
+print(rels)
+
 
 def dfs(graph, num):
     global answer
-    # print("visit:{}".format(num))
-    visited[num-1] = 1
+    visited[num] = 1
     answer += 1
+    print("visit:{}".format(num))
+    print(visited[:10])
 
-    if num in graph.keys():
-        for chi in graph[num]:
-            if visited[chi-1] != 1: # not visited
-                dfs(graph, chi)
+    for chi in graph[num]:
+        if visited[chi] != 1: # not visited
+            dfs(graph, chi)
+    return
+
 
 answer = -1
+# visited[1] = 1
 dfs(rels, 1)
 print(answer)
