@@ -38,7 +38,6 @@ def dfs(graph, num):
             dfs(graph, chi)
     return
 
-
 answer = -1
 dfs(rels, 1)
 print(answer)
