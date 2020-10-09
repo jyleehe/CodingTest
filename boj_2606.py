@@ -20,28 +20,24 @@ num_pairs = int(input())
 rels = {}
 visited = [0] * 100
 
-
 for i in range(num_pairs):
     a, b = map(int, input().split())
     if a in rels.keys():
         rels[a].append(b)
     else:
         rels[a] = [b]
-print(N, num_pairs)
-print(rels.items())
-
 
 def dfs(graph, num):
     global answer
+    # print("visit:{}".format(num))
     visited[num-1] = 1
     answer += 1
 
-    child_list = graph[num]
-    for chi in child_list:
-        if visited[chi-1] != 1: # not visited
-            dfs(graph, chi)
+    if num in graph.keys():
+        for chi in graph[num]:
+            if visited[chi-1] != 1: # not visited
+                dfs(graph, chi)
 
-
-answer = 0
+answer = -1
 dfs(rels, 1)
 print(answer)
