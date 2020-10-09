@@ -42,3 +42,4 @@ def dfs(graph, num):
 answer = -1
 dfs(rels, 1)
 print(answer)
+
