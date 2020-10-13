@@ -24,14 +24,14 @@ def solution(clothes):
     ans = 1
     comb = {}
     # print(comb.items())
-    for item, cat in clothes:
+    for item, cat in clothes:  # count items per category
         if cat in comb.keys():
-            comb[cat].append(item)
+            comb[cat] += 1
         else:
-            comb[cat] = [item]
+            comb[cat] = 1
 
-    for k in comb.keys():
-        ans *= len(comb[k]) + 1
+    for k in comb.keys():  # calc combinations
+        ans *= comb[k] + 1
 
     return ans - 1
 
