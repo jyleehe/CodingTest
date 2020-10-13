@@ -17,8 +17,6 @@
 # DP 개념을 충분히 장착하고 DP 개념에 맞춰서 규칙 설정하여 풀어보자.
 
 
-
-
 def solution(sticker):
     ans = 0
     ansarr = [0, 0, 0]
