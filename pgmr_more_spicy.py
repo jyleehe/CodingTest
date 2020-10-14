@@ -31,30 +31,27 @@ import heapq as hq
 
 
 def solution(scoville, K):
-    ans = 0
-    std = scoville
+    ans = -1
+    cnt = 0
+    std = []
 
-    # print(type(std))
-    # print(std)
-    hq.heapify(std)
-    # print(std)
-    # hq.heappop(std)
-    # print(std)
-
-    # std = scoville
+    for s in scoville:
+        hq.heappush(std, s)
 
     while True:
         minval = hq.heappop(std)
         if minval >= K:
+            if cnt != 0: # cnt 누적된 경우
+                ans = cnt
+            else:       # 처음부터 K 이상인 경우
+                ans = -1
+            break
+        elif len(std) < 1:
             break
         else:
-            ans += 1
+            cnt += 1
             minval2 = hq.heappop(std)
             newval = minval + minval2 * 2
-            std.append(newval)
-            hq.heapify(std)
+            hq.heappush(std, newval)
 
-    if ans == 0:
-        return -1
-    else:
-        return ans
+    return ans
