@@ -41,12 +41,9 @@ def solution(scoville, K):
     while True:
         minval = hq.heappop(std)
         if minval >= K:
-            if cnt != 0: # cnt 누적된 경우
-                ans = cnt
-            else:       # 처음부터 K 이상인 경우
-                ans = -1
+            ans = cnt
             break
-        elif len(std) < 1:
+        elif len(std) < 1:  # K 이상 미도달, -1 출력
             break
         else:
             cnt += 1
