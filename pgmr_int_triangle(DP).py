@@ -15,3 +15,6 @@ def solution(triangle):
 
     return max(dp[-1])
 
+# def solution(t, l=[]):
+#     for r in t: l=[max(t,y)+z for t,y,z in zip([0]+l,l+[0],r)]
+#     return max(l)
