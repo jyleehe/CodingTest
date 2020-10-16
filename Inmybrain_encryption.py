@@ -1,4 +1,5 @@
 
+
 def solution(enc, kstring):
     res = ''
     target = enc
