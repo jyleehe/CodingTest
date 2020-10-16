@@ -1,5 +1,9 @@
 # https://programmers.co.kr/learn/courses/18/lessons/1882
 #
+# 단어 사용된걸 카운팅할 방법이 당장은 떠오르지 않음.
+# DFS 가 익숙하지 않아서 그런듯.
+# 효율성은 아직 모르겠지만 구현은 거의 다 온거 같은데 너무 늦어서 아쉽다.
+
 
 def dfs(strs, remain, res):
     # global anslist
