@@ -1,5 +1,6 @@
 # https://programmers.co.kr/learn/courses/30/lessons/42577#
-# 효율성 문제
+# 효율성 문제에서 걸림.
+# dict 만들어서 했는데, 다른 방식으로 풀어봐야 할 듯.
 
 
 from collections import defaultdict
@@ -8,7 +9,8 @@ from collections import defaultdict
 def solution(phone_book):
     answer = True
     idict = defaultdict(list)
-    phone_book = sorted(phone_book)
+    phone_book = sorted(phone_book) # for test case "0010111" - leading zeros
+
     for i, p in enumerate(phone_book):
         for k in idict.keys():
             if len(p) >= k:
