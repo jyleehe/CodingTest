@@ -8,6 +8,7 @@
 # 아니면 BFS + DFS 로 해야되나?
 # DFS 방법론을 다시 봐야할듯.. 일단 끝까지 갈수 있는지를 리턴하는 DFS + 현재 BFS 형태로 가봐야할듯.
 
+
 def search(strs, target_list):
     # BFS
     # this is like q.pop()
