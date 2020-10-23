@@ -7,17 +7,27 @@ def solution(strs, t):
 
     dp = [0] * (len(t) + 1)  # init dp + len(t), idx starts with 1
     dp[0] = len(strs) + 1  # initial minimum count = # of all candidates + 1
-    print(dp)
+    # print(dp)
 
     for idx, digit in enumerate(t, 1):
-        print(idx, digit)
-        # find minimum counts to make substring until this digit
         subs = t[:idx]
         # dp
+        cnts = []
+        # find minimum counts to make substring until this digit
         for cand in strs:
             candlen = len(cand)
+            # print(candlen)
             if candlen <= len(subs) and cand == subs[-candlen:]:
-                print("dp")
-                dp[idx] = min(dp[idx - candlen] + 1, cnt)
-
-    return ans
+                # print("dp")
+                if cand == subs:
+                    cnts.append(1)
+                else:
+                    cnts.append(dp[idx - candlen] + 1)
+            # print(cnts)
+            if cnts:
+                dp[idx] = min(cnts)
+        # break
+    if dp[-1] == 0:
+        return -1
+    else:
+        return dp[-1]
